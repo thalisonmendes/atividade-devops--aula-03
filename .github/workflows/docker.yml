@@ -16,5 +16,8 @@ jobs:
       - name: Rodar container
         run: docker run -d -p 8080:80 --name meu-container meu-primeiro-docker
 
+      - name: Aguardar container
+        run: sleep 5
+
       - name: Testar container
-        run: curl http://localhost:8080
+        run: curl -f http://localhost:8080

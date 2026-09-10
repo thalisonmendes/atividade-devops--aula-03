@@ -1,4 +1,4 @@
-name: Construir imagem Docker
+name: Construir e testar imagem Docker
 
 on: [push]
 
@@ -12,3 +12,9 @@ jobs:
 
       - name: Construir imagem Docker
         run: docker build -t meu-primeiro-docker .
+
+      - name: Rodar container
+        run: docker run -d -p 8080:80 --name meu-container meu-primeiro-docker
+
+      - name: Testar container
+        run: curl http://localhost:8080
